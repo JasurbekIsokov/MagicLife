@@ -1,0 +1,39 @@
+{
+  "name": "magic-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "serverim": "live-server",
+    "start": "npm-run-all --parallel watch:sass serverim",
+    "compile:css": "node-sass sass/main.scss css/style.css",
+    "concat:css": "concat -o css/style.concat.css css/icon-fonts.css css/style.css ",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css  -o css/style.compress.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magicsoftuz/magic-life.git"
+  },
+  "author": "Umid Rustamov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Magicsoftuz/magic-life/issues"
+  },
+  "homepage": "https://github.com/Magicsoftuz/magic-life#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "concat": "^1.0.3",
+    "node-sass": "^7.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.6",
+    "postcss-cli": "^9.1.0",
+    "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "live-server": "^1.2.1"
+  }
+}
